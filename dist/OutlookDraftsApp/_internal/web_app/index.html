@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlook Drafts Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; background-color: #f9f9f9; }
+        .container { max-width: 600px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        label { display: block; margin-top: 12px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 8px; border-radius: 4px; border: 1px solid #ddd; }
+        button { margin-top: 16px; padding: 12px 20px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>פתיחת טיוטות ב-Outlook</h2>
+    <form id="emailForm">
+        <label for="recipients">נמענים (מופרדים בפסיק)</label>
+        <input type="text" id="recipients" name="recipients" required>
+
+        <label for="subject">נושא המייל</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="body">גוף ההודעה</label>
+        <textarea id="body" name="body" rows="4" required></textarea>
+
+        <label for="file">קובץ מצורף</label>
+        <input type="file" id="file" name="file">
+
+        <button type="button" id="sendBtn">פתח טיוטות ב-Outlook</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("sendBtn").addEventListener("click", function() {
+    const recipients = document.getElementById("recipients").value;
+    const subject = document.getElementById("subject").value;
+    const body = document.getElementById("body").value;
+    const file = document.getElementById("file").files[0];
+
+    if (!recipients) {
+        alert("נא להזין נמענים.");
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append("recipients", recipients);
+    formData.append("subject", subject);
+    formData.append("body", body);
+    if (file) formData.append("file", file);
+
+    fetch("/create-drafts", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert("הטיוטות נוצרו בהצלחה ב-Outlook.");
+        } else {
+            alert("שגיאה: " + (data.error || "לא ידועה"));
+        }
+    })
+    .catch(error => alert("אירעה שגיאה במהלך שליחת הנתונים."));
+});
+</script>
+
+</body>
+</html>
