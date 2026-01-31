@@ -1,51 +1,47 @@
-Outlook Drafts Generator: Quick Start Guide
-This application allows you to automatically generate multiple Outlook email drafts simultaneously based on your custom input.
-
-What the App Does
-The application opens individual Outlook drafts—one for each recipient—using the data you provide: Recipients, Subject, Body, and an optional Attachment.
-
-Requirements
-Operating System: Windows PC.
-
-Software: Outlook Desktop must be installed and signed into an active account.
-
-No Python Needed: The app is provided as a standalone .exe file; no programming environment is required.
-
-How to Launch
-Extract: Unzip the provided ZIP file into a local folder on your computer.
-
-Run: Open the folder and double-click OutlookDraftsApp.exe.
-
-Access: Your web browser will automatically open to http://127.0.0.1:5000.
-
-Note: If Windows SmartScreen appears, click "More info" and then "Run anyway."
-
-Instructions for Use
-Recipients: Enter email addresses separated by commas (e.g., a@example.com, b@example.com).
-
-Subject & Body: Type your desired email subject and message content.
-
-Attachment: Upload a file if needed (optional).
-
-Generate: Click "Open Drafts in Outlook." A separate draft window will pop up for every recipient listed.
-
-Troubleshooting
-Drafts aren't opening: Ensure Outlook is open and connected. Try running the app as an Administrator.
-
-Error "Cannot locate Outlook.Application": This indicates Outlook Desktop is missing or requires repair.
-
-Security Alerts: If prompted by "Outlook Programmatic Access" or your Firewall, select "Allow" or "Grant Access."
-
-Important Notes
-Local Execution: For best performance, run the app from a local disk (C:) rather than a network drive.
-
-Temporary Files: Any uploaded attachments are stored temporarily in the Windows Temp folder only during the draft creation process.
-
-Would you like me to create a professional email template you can use as a "Body" text for this app?
-
-
-
 # Outlook Drafts Generator
+
+A lightweight Windows utility to automate the creation of multiple Outlook email drafts from a single interface. Perfect for personalized mass outreach without the complexity of a full mail merge.
+
+## 🚀 Overview
+This application allows users to input a list of recipients and generate individual Outlook drafts for each one. You can specify a subject line, message body, and even include an attachment.
+
+## ✨ Features
+* **Batch Processing:** Create a separate draft for every recipient in one click.
+* **Attachment Support:** Automatically attaches a local file to every generated draft.
+* **No Installation Required:** Ships as a standalone `.exe` (no Python environment needed).
+* **Local & Secure:** Processes data locally on your machine via the Outlook Desktop API.
+
+## 🛠 Requirements
+* **OS:** Windows 10 or 11.
+* **Software:** Microsoft Outlook Desktop (installed and logged in).
+* **Permissions:** Ability to run executable files on your local drive.
+
+## 📖 How to Use
+
+1. **Download & Extract:** Download the latest release ZIP file and extract it to a local folder.
+2. **Launch:** Double-click `OutlookDraftsApp.exe`. 
+   * *Note: If Windows SmartScreen appears, click "More info" -> "Run anyway".*
+3. **Interface:** Your browser will open the control panel at `http://127.0.0.1:5000`.
+4. **Input Data:**
+   * **Recipients:** Enter emails separated by commas (e.g., `user1@example.com, user2@example.com`).
+   * **Content:** Fill in the Subject and Body fields.
+   * **Attachment:** (Optional) Select a file to attach.
+5. **Generate:** Click **"Open Drafts in Outlook"**.
+
+## 🔍 Troubleshooting
+
+| Issue | Solution |
+| :--- | :--- |
+| **Drafts don't appear** | Ensure Outlook Desktop is open and active. Try running the app as Administrator. |
+| **"Cannot locate Outlook.Application"** | Verify that Microsoft Outlook is installed locally (not just the web version). |
+| **Security Alerts** | Allow access if Outlook prompts for "Programmatic Access" or if your Firewall asks for permission. |
+
+## 📝 Notes
+* **Network Drives:** It is recommended to run the application from a local disk rather than a shared network drive for stability.
+* **Temporary Files:** Attachments are stored in the Windows `%TEMP%` directory only during the draft creation phase and are not permanently stored by the app.
+
+---
+*Created for efficient workflow automation.*
 
 מדריך קצר ללקוח להפעלת האפליקציה ליצירת טיוטות ב‑Outlook.
 
